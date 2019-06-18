@@ -49,6 +49,5 @@
             matchedLetter[i].classList.add('show');
         }
     };
-
-     
+ 
  }

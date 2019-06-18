@@ -43,7 +43,13 @@ class Game {
         won
         */
     checkForWin() { 
-
+        const letter = document.getElementsByClassName('letter');
+        for(let i = 0; i < lis.length; i ++) {
+            if(letter[i].classList.contains('hide')) {
+                return false
+            }
+        }
+        return true
     };
 
     /**
@@ -52,7 +58,15 @@ class Game {
         * Checks if player has remaining lives and ends game if player is out
         */
     removeLife() { 
-
+        //replace the image red heart to grey heart
+        const tries = document.getElementsByClassName('tries')[this.missed];
+        tries.firstChild.src = "images/lostHeart.png";
+        //add a missed 1
+        this.missed += 1;
+        //condition if the player has 5 missed, call gameOver()
+        if(this.missed === 5) {
+            this.gameOver(false)
+        }; 
     };
 
     /**
@@ -60,6 +74,13 @@ class Game {
         * @param {boolean} gameWon - Whether or not the user won the game
         */
     gameOver(gameWon) { 
-
+        const overlay = document.getElementById('overlay');
+        overlay.style.display = 'block';
+        const message = document.getElementById('game-over-message');
+        if(gameWon) {
+            message.textContent = "Great job!";
+        } else {
+            message.textContent = "Sorry, better luck next time!";
+        }
     };
 }
