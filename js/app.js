@@ -22,3 +22,20 @@
 //     logPhrase(game.getRandomPhrase());
 //     logPhrase(game.getRandomPhrase());
 //     logPhrase(game.getRandomPhrase());
+
+// const game = new Game();
+// const randomPhrase = game.getRandomPhrase();
+// const phrase = new Phrase(randomPhrase.phrase);
+// console.log(phrase);
+// phrase.addPhraseToDisplay();
+// console.log('randomIndex');
+
+// const game = new Game();
+// game.startGame();
+// console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
+let game;
+const button = document.getElementById('btn__reset');
+button.addEventListener('click', () => {
+    game = new Game();
+    game.startGame();
+});
