@@ -93,7 +93,7 @@ class Game {
 
     /**
      * Replace the red heart to a grey heard.
-     * @this {game}
+     * @this game
      * Add 1 to the missing player's count.
      * If player reaches 5 missed tries gameOver method is called.
      */
