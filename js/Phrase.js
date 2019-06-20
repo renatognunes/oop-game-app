@@ -6,14 +6,14 @@ class Phrase {
 
     /**
      * @param {object} phrase object.
-     * @constructor
+     * @constructor phrase
      */
     constructor(phrase) {
         this.phrase = phrase.toLowerCase();
     };
 
     /**
-     * Generates a DOM Element to each letter in the phrase and append it to a node.
+     * Generates a DOM Element to each letter in the phrase and append it to the ul node.
      * @this phrase
      */
     addPhraseToDisplay() {

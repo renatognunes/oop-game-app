@@ -16,7 +16,7 @@ class Game {
     };
 
     /**
-     * Store the phrases available in the game.
+     * Stores the phrases available in the game.
      * @returns {array} Array of phrase objects.
      */
     createPhrases() {
@@ -31,7 +31,7 @@ class Game {
 
     /**
      * Takes a random phrase from phrases array.
-     * @method Generate a random number to be used as an index argument.
+     * @method Generates a random number to be used as an index argument.
      * @returns {object} A random phrase object from phrases array.
      */
     getRandomPhrase() {
@@ -40,7 +40,7 @@ class Game {
     };
 
     /**
-     * Transition from starter diplay to game display.
+     * Transition from starter display to game display.
      * @property {string} activePhrase gets a random phrase assigned as its new value.
      * @this game
      */
@@ -79,7 +79,8 @@ class Game {
 
     /**
      * Checks for a winning move by searching a class in all letters.
-     * @return {boolean} True if the class wasn't found it and false if the class in found it.
+     * @return {boolean} True if the class is not found it and false if the class in found it.
+     * The CSS class 'hide' indicates the player has not guessed all letters in the phrase.
      */
     checkForWin() {
         const letter = document.getElementsByClassName('letter');
@@ -109,7 +110,7 @@ class Game {
     /**
      * Displays game over messages based on the game result.
      * @param {boolean} gameWon - Whether or not the user won the game.
-     * Reset all buttons and lives to new game.
+     * Reset all buttons and lifes to a new game.
      * @this game
      */
     gameOver(gameWon) {
@@ -136,7 +137,7 @@ class Game {
 
         const message = document.getElementById('game-over-message');
         if (gameWon) {
-            message.textContent = "Great job!";
+            message.textContent = "Congratulations, you guessed the phrase!";
             overlay.classList.remove('start');
             overlay.classList.remove('lose');
             overlay.classList.add('win');

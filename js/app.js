@@ -17,7 +17,7 @@ button.addEventListener('click', () => {
 
 /**
  * Listening for a click in the virtual keyboard.
- * Invoke game object method if conditional returns true.
+ * Invokes game object method if conditional returns true.
  */
 const keyBoard = document.getElementById('qwerty');
 keyBoard.addEventListener('click', (e) => {
@@ -29,16 +29,16 @@ keyBoard.addEventListener('click', (e) => {
 /**
  * Listening for the physical keyboard.
  * If pressed key is found in the phrase and is not disabled, invoke game object method.
- * If presses key is not found in the phrase or is already disabled, return false.
+ * If pressed key is not found in the phrase or is already disabled, return false.
  */
 document.addEventListener('keydown', (event) => {
     const key = document.getElementsByClassName('key');
     for (let i = 0; i < key.length; i++) {
         if (event.key === key[i].textContent) {
-            if (key[i].disabled === true) {
-                return false
-            } else {
+            if (key[i].disabled === false) {
                 game.handleInteraction(key[i]);
+            } else {
+                return false
             }
         }
     }
