@@ -10,11 +10,11 @@ class Game {
     };
     createPhrases() {
         return [
-            { phrase: 'Life is good' },
-            { phrase: 'Keep Working' },
-            { phrase: 'You can do it' },
-            { phrase: 'Have a nice day' },
-            { phrase: 'Thank you' }
+            { phrase: 'Gala do Samu' },
+            { phrase: 'Lula Livre' },
+            { phrase: 'Vaza Fia' },
+            { phrase: 'Terra Plana' },
+            { phrase: 'Vai pra Cuba' }
         ]
     };
 
@@ -34,7 +34,21 @@ class Game {
         phrase.addPhraseToDisplay();
     }
 
-    handleInteraction() {
+    handleInteraction(button) {
+        button.disabled = true;
+        const phrase = new Phrase(this.activePhrase);
+        if(phrase.checkLetter(button.textContent)) {
+            button.classList.add('chosen');
+            phrase.showMatchedLetter(button.textContent);
+            this.checkForWin();
+            if(this.checkForWin()) {
+                this.gameOver(this.checkForWin());
+            }
+        } else {
+            button.classList.add('wrong');
+            this.removeLife();
+        }
+        console.log(button)
     };
 
     /**
@@ -44,7 +58,7 @@ class Game {
         */
     checkForWin() { 
         const letter = document.getElementsByClassName('letter');
-        for(let i = 0; i < lis.length; i ++) {
+        for(let i = 0; i < letter.length; i ++) {
             if(letter[i].classList.contains('hide')) {
                 return false
             }
@@ -75,7 +89,26 @@ class Game {
         */
     gameOver(gameWon) { 
         const overlay = document.getElementById('overlay');
-        overlay.style.display = 'block';
+        overlay.style.display = '';
+        this.missed = 0;
+
+        const ul = document.getElementsByTagName('ul')[0];
+        while (ul.hasChildNodes()) {
+            ul.removeChild(ul.firstChild);
+        }
+
+        const buttons = document.getElementsByClassName('key');
+        for(let i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove('chosen');
+            buttons[i].classList.remove('wrong');
+            buttons[i].disabled = false;
+        }
+
+        for(let i = 0; i < 5; i ++) {
+            const hearts = document.getElementsByClassName('tries')[i];
+            hearts.firstChild.src = "images/liveHeart.png";
+        }
+
         const message = document.getElementById('game-over-message');
         if(gameWon) {
             message.textContent = "Great job!";
