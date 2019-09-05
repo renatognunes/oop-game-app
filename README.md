@@ -1,6 +1,6 @@
-Treehouse Techdegree: FSJS project 4 - Object Oriented Programming Game App
+Object Oriented Programming Game App
 
-This project uses Object-Oriented Programming to create a guessing phrase game. The game generates a random phrase on the screen and the player has 5 chances to guess the correct phrase. The player is able to use a virtual keyboard as well as a physical keyboard. The project uses two main class Game and Phrase which interact with each other making the project clearer and more consistent. This project has been built with the intention of better understanding OOP.
+This project uses Object-Oriented Programming to create a guessing phrase game. The game generates a random phrase on the screen and the player has 5 chances to guess the correct phrase. The player is able to use a virtual keyboard as well as a physical keyboard. The project uses two main class Game and Phrase which interact with each other making the project clearer and more consistent.
 
 Languages:
 - Javascript ES6
